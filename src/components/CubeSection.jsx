@@ -152,16 +152,16 @@ const CubeSection = forwardRef(function CubeSection(_props, ref) {
 
               {/* Metrics & Availability Badge */}
               <div
-                className="mt-10 md:mt-12 p-6 md:p-8 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 about-metrics-card"
+                className="mt-10 md:mt-12 p-6 md:p-8 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 md:gap-8 about-metrics-card"
               >
                 {metrics.length > 0 && (
-                  <div className={`grid grid-cols-${Math.min(metrics.length, 3)} gap-6 md:gap-10`}>
+                  <div className="grid grid-cols-3 gap-6 sm:gap-8 md:gap-12">
                     {metrics.map((metric, mIdx) => (
-                      <div key={mIdx}>
+                      <div key={mIdx} className="flex flex-col">
                         <div className="font-display font-bold text-2xl md:text-3xl tracking-tight" style={{ color: 'var(--theme-text)' }}>
                           {metric.value}
                         </div>
-                        <div className="text-xs font-normal mt-0.5" style={{ opacity: 0.5, color: 'var(--theme-text)' }}>
+                        <div className="text-xs font-normal mt-1 leading-snug" style={{ opacity: 0.55, color: 'var(--theme-text)' }}>
                           {metric.label}
                         </div>
                       </div>
@@ -172,13 +172,13 @@ const CubeSection = forwardRef(function CubeSection(_props, ref) {
                 {/* Status Badge */}
                 {availability?.show !== false && availability?.text && (
                   <div
-                    className="flex items-center gap-3 px-4 py-2 rounded-full shadow-sm self-start sm:self-auto about-status-badge"
+                    className="flex items-center gap-2.5 px-4 py-2 rounded-full self-start sm:self-auto about-status-badge whitespace-nowrap"
                   >
-                    <span className="relative flex h-2.5 w-2.5">
+                    <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                     </span>
-                    <span className="text-xs font-medium" style={{ opacity: 0.8, color: 'var(--theme-text)' }}>
+                    <span className="text-xs font-medium tracking-tight" style={{ opacity: 0.85, color: 'var(--theme-text)' }}>
                       {availability.text}
                     </span>
                   </div>

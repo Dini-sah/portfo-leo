@@ -46,7 +46,6 @@ export default function Cube3D({ progress, containerRef }) {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/10 pointer-events-none" />
         </div>
 
         {/* Back Face */}
@@ -57,7 +56,6 @@ export default function Cube3D({ progress, containerRef }) {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/10 pointer-events-none" />
         </div>
 
         {/* Left Face */}
@@ -68,7 +66,6 @@ export default function Cube3D({ progress, containerRef }) {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/10 pointer-events-none" />
         </div>
 
         {/* Right Face */}
@@ -79,7 +76,6 @@ export default function Cube3D({ progress, containerRef }) {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/10 pointer-events-none" />
         </div>
 
         {/* Top Face */}
