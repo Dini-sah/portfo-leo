@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-accent: #a670ff;
+    --color-bg: #000000;
+    --color-card: #0a0a0a;
+    --color-border: rgba(255, 255, 255, 0.1);
+
+    /* Dynamic theme properties — driven by framer-motion scroll in App.jsx */
+    --theme-bg: #000000;
+    --theme-text: #ffffff;
+    --theme-accent: #a670ff;
+    --theme-border: rgba(255, 255, 255, 0.1);
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+/* === Scroll-based theme transition adaptive styles === */
+
+/* Navbar monogram badge adapts to theme */
+.navbar-monogram {
+  border: 1px solid var(--theme-border);
+  background-color: var(--theme-bg);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-monogram:hover {
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-accent) !important;
+}
+
+/* About section metrics card */
+.about-metrics-card {
+  background-color: color-mix(in srgb, var(--theme-text) 3%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 6%, transparent);
+}
+
+/* About section status badge */
+.about-status-badge {
+  background-color: color-mix(in srgb, var(--theme-text) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+}
+
+/* Client scroll section fade masks — adapt to current theme bg */
+.clients-fade-left {
+  background: linear-gradient(to right, var(--theme-bg), transparent);
+}
+
+.clients-fade-right {
+  background: linear-gradient(to left, var(--theme-bg), transparent);
+}
+
+/* Client logos adapt brightness based on theme */
+.clients-logo-item img {
+  filter: brightness(1.25);
+  transition: filter 0.4s ease;
+}
+
+/* Navbar backdrop adapts to theme when scrolled */
+.navbar-scrolled-bg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background-color: color-mix(in srgb, var(--theme-bg) 80%, transparent) !important;
+}
+
+/* Custom Typography & Utility Classes */
+.font-display {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.font-accent {
+  font-family: 'DM Sans', 'Inter', sans-serif;
+}
+
+/* 3D Cube Styles */
+.perspective-container {
+  perspective: 1200px;
+  perspective-origin: center center;
+}
+
+.cube-3d {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .cube-3d {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  backface-visibility: visible;
+}
+
+.cube-front {
+  transform: rotateY(0deg) translateZ(130px);
+}
+
+.cube-back {
+  transform: rotateY(180deg) translateZ(130px);
+}
+
+.cube-right {
+  transform: rotateY(90deg) translateZ(130px);
+}
+
+.cube-left {
+  transform: rotateY(-90deg) translateZ(130px);
+}
+
+.cube-top {
+  transform: rotateX(90deg) translateZ(130px);
+}
+
+.cube-bottom {
+  transform: rotateX(-90deg) translateZ(130px);
+}
+
+@media (max-width: 767px) {
+  .cube-front {
+    transform: rotateY(0deg) translateZ(110px);
+  }
+
+  .cube-back {
+    transform: rotateY(180deg) translateZ(110px);
+  }
+
+  .cube-right {
+    transform: rotateY(90deg) translateZ(110px);
+  }
+
+  .cube-left {
+    transform: rotateY(-90deg) translateZ(110px);
+  }
+
+  .cube-top {
+    transform: rotateX(90deg) translateZ(110px);
+  }
+
+  .cube-bottom {
+    transform: rotateX(-90deg) translateZ(110px);
+  }
+}
+
+/* Mail Button Roll Animation (Framer Signature) */
+.mail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.label-roll-container {
+  display: inline-block;
+  height: 1.3em;
+  line-height: 1.3em;
+  overflow: hidden;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+
+.label-roll {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.label-roll span {
+  display: block;
+  height: 1.3em;
+  line-height: 1.3em;
+}
+
+.mail-btn:hover .label-roll-container,
+.hover-roll-trigger:hover .label-roll-container {
+  border-bottom-color: #ffffff;
+}
+
+.mail-btn:hover .label-roll,
+.hover-roll-trigger:hover .label-roll {
+  transform: translateY(-50%);
+}
+
+/* Marquee infinite ticker */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}

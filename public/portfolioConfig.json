@@ -1,0 +1,426 @@
+{
+  "metadata": {
+    "title": "RALFH LEO — Product Designer / Portfolio '26",
+    "description": "Portfolio of RALFH LEO, Product Designer with 2+ years of experience across automotive, SaaS and consumer platforms. Transforming complex systems into effortless digital products."
+  },
+  "personal": {
+    "name": "RALFH LEO",
+    "initials": "RL",
+    "role": "PRODUCT DESIGNER",
+    "experienceTag": "(Currently at Onething Design)",
+    "bio": "with 2+ years of experience across automotive, SaaS and consumer platforms. Currently exploring AI powered design process in building 0 to 1 products used by thousands.",
+    "year": "/PORTFOLIO '26",
+    "cubeBadge": "RL·26",
+    "email": "ralfhleo@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/ralfhleo/",
+    "location": "India",
+    "experienceYears": "2+ Years",
+    "showreelVideo": "https://framerusercontent.com/assets/0xLrIv0x7RZdmj69lyzR8KdTK8.mp4"
+  },
+  "navigation": {
+    "monogram": "RL",
+    "links": [
+      {
+        "id": "work",
+        "label": "Work",
+        "type": "scroll",
+        "target": "work"
+      },
+      {
+        "id": "resume",
+        "label": "Resume",
+        "type": "action",
+        "action": "openResume"
+      }
+    ]
+  },
+  "about": {
+    "tagline": "Hey, I'm Ralph",
+    "statement": "A design strategist working on digital products that turn complexity into clarity, purpose and a little more human.\n\nAligning design decisions with the business goals to drive engagement.",
+    "pillars": [
+      {
+        "step": "01 · Systems",
+        "title": "0 → 1 Architecture",
+        "description": "Transforming ambiguous problem spaces into validated user flows, scalable design tokens, and production systems."
+      },
+      {
+        "step": "02 · Mission Critical",
+        "title": "Automotive & SaaS",
+        "description": "Designing low-cognitive-load cockpits, telematics platforms, and complex enterprise data workflows."
+      },
+      {
+        "step": "03 · Craft & AI",
+        "title": "Intelligent Velocity",
+        "description": "Leveraging AI-assisted prototyping and tactile micro-interactions to build responsive, lovable web apps."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "2+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "12+",
+        "label": "Shipped Products"
+      },
+      {
+        "value": "100k+",
+        "label": "Active Users"
+      }
+    ],
+    "availability": {
+      "show": true,
+      "text": "Available for selective advisory"
+    }
+  },
+  "cubeImages": [
+    {
+      "face": "front",
+      "src": "https://framerusercontent.com/images/5ns2j4u2B824ZRF0DSGWns4M.jpeg",
+      "alt": "Design work 1"
+    },
+    {
+      "face": "back",
+      "src": "https://framerusercontent.com/images/3k71Svv9h9czYKFhmGSeuRWVhE.jpeg",
+      "alt": "Design work 2"
+    },
+    {
+      "face": "left",
+      "src": "https://framerusercontent.com/images/QFKLahUnZfMPgbGqYPnS14rhIE.jpeg",
+      "alt": "Design work 3"
+    },
+    {
+      "face": "right",
+      "src": "https://framerusercontent.com/images/x6aAr7dyE7DWonw9u0CGxD27ED4.jpeg",
+      "alt": "Design work 4"
+    }
+  ],
+  "clients": {
+    "tagline": "My clients & collaborations",
+    "headline": "From mobility and healthcare to finance and retail, I’ve worked with teams at —",
+    "logos": [
+      { "name": "Royal Enfield", "src": "https://framerusercontent.com/images/MHPRyvRv1RoTaKYh7LmtCsLVa8Y.png" },
+      { "name": "Hero Motocorp", "src": "https://framerusercontent.com/images/bCdOU2ec9qF5gPXH5QzbG1MbU.png" },
+      { "name": "Astra Tech", "src": "https://framerusercontent.com/images/CKrZXJFpJvNWFQXgM3idIyxGs.png" },
+      { "name": "Fleet Corp", "src": "https://framerusercontent.com/images/wUdyFLfohvj601L21mkMZ5s.png" },
+      { "name": "HealthOne", "src": "https://framerusercontent.com/images/AHjs1xvFieRBJEP6cGQ5DD9bc0.png" },
+      { "name": "Mobility Lab", "src": "https://framerusercontent.com/images/wndnSZWij5ZoDG9zWq2FES7wM.png" },
+      { "name": "Retail Hub", "src": "https://framerusercontent.com/images/uXaPhcvG7hScdBS5Fm69OtyGI3A.png" },
+      { "name": "SaaS Matrix", "src": "https://framerusercontent.com/images/70WCkl1Si4o8QGXxeAy1kHc8utk.png" },
+      { "name": "Onething Design", "src": "https://framerusercontent.com/images/9L06rCoVWr4NtZdYenqhFselpc.png" },
+      { "name": "Design Collective", "src": "https://framerusercontent.com/images/4Jv1KFBO3p79TKg6IjupncYkyI8.png" }
+    ]
+  },
+  "featuredProjects": [
+    {
+      "id": "fleet-management",
+      "title": "Fleet Management System",
+      "year": "2025",
+      "tagline": "Intelligent Telematics & Fleet Monitoring Platform",
+      "video": "https://framerusercontent.com/assets/jaW9YVPwAotH8LXXN6rRThOn19w.mp4",
+      "poster": "https://framerusercontent.com/images/wUdyFLfohvj601L21mkMZ5s.png",
+      "category": "Automotive SaaS",
+      "client": "Global Logistics Leader",
+      "role": "Lead Product Designer",
+      "duration": "6 Months",
+      "summary": "A unified enterprise platform delivering real-time vehicle telematics, route optimization algorithms, predictive maintenance warnings, and driver health analytics across 10,000+ active fleet vehicles.",
+      "challenge": "Dispatch managers were juggling five disparate legacy interfaces with slow refresh rates, high cognitive load, and delayed emergency response times.",
+      "solution": "Designed a clean, dark-mode cockpit with hierarchical information density, real-time map clustering, and single-click driver dispatch workflows that reduced reaction times by 42%.",
+      "metrics": [
+        { "label": "Fleet Vehicles Monitored", "value": "10,000+" },
+        { "label": "Dispatch Response Time", "value": "-42%" },
+        { "label": "Telemetry Ingestion Rate", "value": "1.2M/sec" }
+      ],
+      "features": [
+        "Dynamic Route Optimization & Geofencing",
+        "Predictive Maintenance AI Diagnostic Cards",
+        "Driver Fatigue Detection & Real-time Alerts",
+        "Custom Enterprise Data Analytics Dashboard"
+      ]
+    },
+    {
+      "id": "royal-enfield",
+      "title": "Royal Enfield’s Digital Ecosystem",
+      "year": "Live since 2025",
+      "tagline": "Connected Rider App & In-Cluster Companion Experience",
+      "video": "https://framerusercontent.com/assets/0xLrIv0x7RZdmj69lyzR8KdTK8.mp4",
+      "poster": "https://framerusercontent.com/images/jDwtyqIMAvVrjflGGonxKWSXw.png",
+      "category": "Connected Mobility",
+      "client": "Royal Enfield",
+      "role": "Senior UI/UX Designer",
+      "duration": "8 Months",
+      "summary": "An end-to-end digital experience connecting the rider's motorcycle cluster with their mobile app, turn-by-turn navigation, ride metrics, and community ride events.",
+      "challenge": "Riders needed distraction-free navigation while cruising on highways, with high contrast visibility under direct sunlight and seamless Bluetooth LE auto-reconnect.",
+      "solution": "Engineered high-contrast, minimalist cluster HUD states combined with an intuitive companion app featuring offline topographic map routing and one-tap emergency SOS beaconing.",
+      "metrics": [
+        { "label": "Active Riders Daily", "value": "250K+" },
+        { "label": "App Store Rating", "value": "4.8 ★" },
+        { "label": "Ride Miles Tracked", "value": "45M+" }
+      ],
+      "features": [
+        "Turn-by-Turn Head-Up Tripper Navigation",
+        "Tripmeter & Lean Angle Riding Telemetry",
+        "Community Ride Planner & Group Sync",
+        "Digital Service History & Roadside Assistance"
+      ]
+    },
+    {
+      "id": "smart-switch",
+      "title": "Smart Switch Automation",
+      "year": "2026",
+      "tagline": "Next-Gen IoT Smart Home Touch Controller",
+      "video": "https://framerusercontent.com/assets/amSchHxMgnfz0aHRe2lwRp1AI.mp4",
+      "poster": "https://framerusercontent.com/images/SY3fX5MzYunMFMhAAbPnN3G2TE.png",
+      "category": "Hardware & IoT Interface",
+      "client": "NextGen Automation",
+      "role": "Interaction & Product Designer",
+      "duration": "5 Months",
+      "summary": "A sleek embedded touch glass interface and companion mobile application enabling contextual ambient lighting, energy monitoring, and AI-scheduled device automation.",
+      "challenge": "Traditional smart switch controls are cluttered with complex menus, making physical micro-interactions slow and unintuitive for all age groups in a home.",
+      "solution": "Created haptic-feedback spatial micro-gestures and dynamic ambient lighting themes that adapt to the time of day, room occupancy, and energy conservation goals.",
+      "metrics": [
+        { "label": "Energy Consumption", "value": "-28%" },
+        { "label": "User Interaction Latency", "value": "<15ms" },
+        { "label": "Setup Completion Rate", "value": "98%" }
+      ],
+      "features": [
+        "Spatial Multi-Touch Glass Slider Controls",
+        "Context-Aware Circadian Lighting Routines",
+        "Real-time Wattage & Grid Cost Analysis",
+        "Matter & Apple HomeKit Universal Protocol"
+      ]
+    }
+  ],
+  "archive": {
+    "tagline": "There’s more",
+    "headline": "Work work workk",
+    "projects": [
+      {
+        "id": "puzzleyou",
+        "num": "01",
+        "title": "PuzzleYou - Game Design",
+        "year": "2023",
+        "type": "Personal Project",
+        "isLive": false,
+        "image": "https://framerusercontent.com/images/3Sna9bacvNDek7BhZI3KnbckiY.png",
+        "description": "An engaging mobile puzzle game exploring spatial cognition, haptic feedback loops, and minimalist typography.",
+        "details": "Conducted research on cognitive psychology and tactile reward systems. Built interactive micro-animations with physics-based springs and custom SVG particle bursts.",
+        "tags": ["Mobile UI", "Game Mechanics", "Design Systems"]
+      },
+      {
+        "id": "elderly-infotainment",
+        "num": "02",
+        "title": "Elderly Ergonomic Infotainment Screen",
+        "year": "2023",
+        "type": "Personal Project",
+        "isLive": false,
+        "image": "https://framerusercontent.com/images/7lnTU9KwjT6lLJy17bTaLkIgZc.png",
+        "description": "Inclusive in-vehicle touchscreen interface designed for senior drivers with high contrast, oversized target areas, and voice-assisted confirmations.",
+        "details": "Designed according to WCAG AAA guidelines and SAE ergonomic automotive standards. Features ambient voice feedback, zero-depth menu hierarchies, and anti-glare typography.",
+        "tags": ["Accessibility", "Automotive UI", "HMI Design"]
+      },
+      {
+        "id": "employee-wellbeing",
+        "num": "03",
+        "title": "Employee Wellbeing IoT Application",
+        "year": "2024",
+        "type": "Personal Project",
+        "isLive": false,
+        "image": "https://framerusercontent.com/images/txuhvK34UAM6dsvvhQaSP3k17Q.png",
+        "description": "Workplace ergonomic companion tracking posture, desk height, and screen time to promote healthy habits in corporate environments.",
+        "details": "Integrated Bluetooth desk sensor telemetry into a cheerful, non-intrusive desktop widget with gentle micro-break reminders and team posture challenges.",
+        "tags": ["IoT Software", "Ergonomics", "Behavioral Design"]
+      },
+      {
+        "id": "jsl-report",
+        "num": "04",
+        "title": "JSL Annual Report '24",
+        "year": "2024",
+        "type": "Client Project",
+        "isLive": true,
+        "image": "https://framerusercontent.com/images/jO6LUtHXG3HOT7BQW826PnKeqJ8.png",
+        "description": "An interactive, data-dense digital annual report featuring animated financial charts, ESG impact visualizers, and leadership letters.",
+        "details": "Crafted interactive scrollytelling experiences for stakeholder disclosure. Boosted average investor session duration from 1.5 minutes to 7.8 minutes.",
+        "tags": ["Data Visualization", "Editorial UI", "Creative Development"]
+      },
+      {
+        "id": "motoverse-website",
+        "num": "05",
+        "title": "Royal Enfield Motoverse Website",
+        "year": "2025",
+        "type": "Client Project",
+        "isLive": true,
+        "image": "https://framerusercontent.com/images/jDwtyqIMAvVrjflGGonxKWSXw.png",
+        "description": "Official festival website for Royal Enfield Motoverse, India's largest motorcycle culture and music festival held in Goa.",
+        "details": "Designed high-octane visual identity with 3D motorcycle customizers, artist schedule timelines, ticket checkout flows, and interactive festival venue maps.",
+        "tags": ["Event Platform", "3D Interactive", "High Conversion"]
+      }
+    ]
+  },
+  "outOfOffice": {
+    "tagline": "Out of Office",
+    "narrative": "Every few months, I take a break from work and travel. Even a short weekend itinerary gives me a sense that life is larger than the bubble I live in. Each visit leaves me inspired, bringing a fresh perspective back to my life and work.",
+    "whyDesignQuestion": "Why design? My answer is simple.",
+    "whyDesignAnswer": "I travel places, meet new people, observe their culture closely. The hobby is the same as the work, really: connect with people, explore new ground, and build towards a life that feels easy.",
+    "scrollPrompt": "Scroll to explore",
+    "photos": [
+      {
+        "src": "https://framerusercontent.com/images/jpTEjYMHFQLFDxwnlzq83c83c.jpg",
+        "location": "Spiti Valley, Himalayas",
+        "caption": "High altitude silence and endless horizons.",
+        "targetX": 450,
+        "targetY": 340,
+        "targetScale": 0.38,
+        "initialRotate": 3,
+        "targetRotate": 8
+      },
+      {
+        "src": "https://framerusercontent.com/images/jog7jF354zj60CdhKIYQIJcFjM.jpeg",
+        "location": "Ladakh Mountain Pass",
+        "caption": "Winding roads that test patience and reward courage.",
+        "targetX": 400,
+        "targetY": 150,
+        "targetScale": 0.42,
+        "initialRotate": -4,
+        "targetRotate": -5
+      },
+      {
+        "src": "https://framerusercontent.com/images/h11TVpAt4gXYw3jDK4MXvc4w0o.jpeg",
+        "location": "Gokarna Coastal Trail",
+        "caption": "Where cliffs meet the Arabian Sea at sunset.",
+        "targetX": 490,
+        "targetY": -270,
+        "targetScale": 0.4,
+        "initialRotate": 5,
+        "targetRotate": 7
+      },
+      {
+        "src": "https://framerusercontent.com/images/BHSKJS87doCm8qtnBiYVHacamE.jpeg",
+        "location": "Kasol Valley",
+        "caption": "Morning mist through old pine trees.",
+        "targetX": 230,
+        "targetY": -370,
+        "targetScale": 0.36,
+        "initialRotate": -2,
+        "targetRotate": -7
+      },
+      {
+        "src": "https://framerusercontent.com/images/myOuHYjBG9gS3OJDawe0zHBbf0.jpg",
+        "location": "Pushkar Desert",
+        "caption": "Colors, culture, and architecture etched in time.",
+        "targetX": -280,
+        "targetY": 350,
+        "targetScale": 0.36,
+        "initialRotate": 4,
+        "targetRotate": 6
+      },
+      {
+        "src": "https://framerusercontent.com/images/oCySVrOzi9LI9fZbv0ZUpa6rwUc.jpg",
+        "location": "Old Manali",
+        "caption": "Wooden houses with stories from generations past.",
+        "targetX": -500,
+        "targetY": 170,
+        "targetScale": 0.45,
+        "initialRotate": -5,
+        "targetRotate": -6
+      },
+      {
+        "src": "https://framerusercontent.com/images/DFL4xQKjEKUKhQpGjVJESvm3D0.jpeg",
+        "location": "Dharamkot Ridge",
+        "caption": "Overlooking the Kangra valley under a golden canopy.",
+        "targetX": -530,
+        "targetY": -260,
+        "targetScale": 0.36,
+        "initialRotate": 2,
+        "targetRotate": 8
+      },
+      {
+        "src": "https://framerusercontent.com/images/tmw4vYLSjI2Or4T627FPQJ1Aw.jpeg",
+        "location": "Varkala Cliffs",
+        "caption": "Red cliffs and slow evenings listening to waves.",
+        "targetX": -350,
+        "targetY": -370,
+        "targetScale": 0.4,
+        "initialRotate": -3,
+        "targetRotate": -6
+      }
+    ]
+  },
+  "resume": {
+    "header": {
+      "title": "Curriculum Vitae",
+      "name": "RALFH LEO",
+      "role": "Product Designer",
+      "specialization": "Digital Product Strategist",
+      "location": "India",
+      "email": "ralfhleo@gmail.com",
+      "linkedin": "linkedin.com/in/ralfhleo",
+      "linkedinUrl": "https://www.linkedin.com/in/ralfhleo/",
+      "experience": "2+ Years"
+    },
+    "workExperience": [
+      {
+        "role": "Product Designer",
+        "company": "Onething Design",
+        "period": "2024 — Present",
+        "description": "Spearheaded 0-to-1 design strategy and UI execution for key automotive, IoT, and enterprise clients. Partnered with engineering teams to deploy micro-interactions and scalable design systems for platforms serving 250,000+ active daily users."
+      },
+      {
+        "role": "UI/UX & Interaction Designer",
+        "company": "Digital Products & SaaS Studio",
+        "period": "2022 — 2024",
+        "description": "Designed user interfaces and interactive prototypes for SaaS analytics dashboards, telematics portals, and consumer applications. Conducted user testing and usability heuristic audits."
+      }
+    ],
+    "coreCompetencies": [
+      "Product Design",
+      "Design Strategy",
+      "Design Systems",
+      "HMI & Automotive UX",
+      "Interaction Design",
+      "User Research",
+      "AI-powered Workflows",
+      "Prototyping"
+    ],
+    "toolsAndTech": [
+      "Figma",
+      "Framer",
+      "React",
+      "Tailwind CSS",
+      "GSAP",
+      "Framer Motion",
+      "Spline 3D",
+      "ProtoPie"
+    ]
+  },
+  "footer": {
+    "tagline": "Get In Touch",
+    "email": "ralfhleo@gmail.com",
+    "copyHint": "Click to copy",
+    "links": [
+      {
+        "id": "showreel",
+        "label": "Showreel",
+        "type": "action",
+        "action": "openShowreel"
+      },
+      {
+        "id": "resume",
+        "label": "Resume",
+        "type": "action",
+        "action": "openResume"
+      },
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "type": "link",
+        "url": "https://www.linkedin.com/in/ralfhleo/"
+      }
+    ],
+    "copyright": "© 2026 RALFH LEO. All rights reserved."
+  },
+  "showreelModal": {
+    "title": "Design Showreel",
+    "video": "https://framerusercontent.com/assets/0xLrIv0x7RZdmj69lyzR8KdTK8.mp4"
+  }
+}
