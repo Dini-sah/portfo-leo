@@ -15,7 +15,7 @@
     "linkedin": "https://www.linkedin.com/in/ralfhleo/",
     "location": "India",
     "experienceYears": "2+ Years",
-    "showreelVideo": "https://framerusercontent.com/assets/0xLrIv0x7RZdmj69lyzR8KdTK8.mp4"
+    "showreelVideo": "/placeholders/sample-video.mp4"
   },
   "navigation": {
     "monogram": "RL",
@@ -76,39 +76,69 @@
   "cubeImages": [
     {
       "face": "front",
-      "src": "https://framerusercontent.com/images/5ns2j4u2B824ZRF0DSGWns4M.jpeg",
-      "alt": "Design work 1"
+      "src": "/placeholders/cube-1.jpg",
+      "alt": "Project Concept 1"
     },
     {
       "face": "back",
-      "src": "https://framerusercontent.com/images/3k71Svv9h9czYKFhmGSeuRWVhE.jpeg",
-      "alt": "Design work 2"
+      "src": "/placeholders/cube-2.jpg",
+      "alt": "Project Concept 2"
     },
     {
       "face": "left",
-      "src": "https://framerusercontent.com/images/QFKLahUnZfMPgbGqYPnS14rhIE.jpeg",
-      "alt": "Design work 3"
+      "src": "/placeholders/cube-3.jpg",
+      "alt": "Project Concept 3"
     },
     {
       "face": "right",
-      "src": "https://framerusercontent.com/images/x6aAr7dyE7DWonw9u0CGxD27ED4.jpeg",
-      "alt": "Design work 4"
+      "src": "/placeholders/cube-4.jpg",
+      "alt": "Project Concept 4"
     }
   ],
   "clients": {
     "tagline": "My clients & collaborations",
     "headline": "From mobility and healthcare to finance and retail, I’ve worked with teams at —",
     "logos": [
-      { "name": "Royal Enfield", "src": "https://framerusercontent.com/images/MHPRyvRv1RoTaKYh7LmtCsLVa8Y.png" },
-      { "name": "Hero Motocorp", "src": "https://framerusercontent.com/images/bCdOU2ec9qF5gPXH5QzbG1MbU.png" },
-      { "name": "Astra Tech", "src": "https://framerusercontent.com/images/CKrZXJFpJvNWFQXgM3idIyxGs.png" },
-      { "name": "Fleet Corp", "src": "https://framerusercontent.com/images/wUdyFLfohvj601L21mkMZ5s.png" },
-      { "name": "HealthOne", "src": "https://framerusercontent.com/images/AHjs1xvFieRBJEP6cGQ5DD9bc0.png" },
-      { "name": "Mobility Lab", "src": "https://framerusercontent.com/images/wndnSZWij5ZoDG9zWq2FES7wM.png" },
-      { "name": "Retail Hub", "src": "https://framerusercontent.com/images/uXaPhcvG7hScdBS5Fm69OtyGI3A.png" },
-      { "name": "SaaS Matrix", "src": "https://framerusercontent.com/images/70WCkl1Si4o8QGXxeAy1kHc8utk.png" },
-      { "name": "Onething Design", "src": "https://framerusercontent.com/images/9L06rCoVWr4NtZdYenqhFselpc.png" },
-      { "name": "Design Collective", "src": "https://framerusercontent.com/images/4Jv1KFBO3p79TKg6IjupncYkyI8.png" }
+      {
+        "name": "Royal Enfield",
+        "src": "https://framerusercontent.com/images/MHPRyvRv1RoTaKYh7LmtCsLVa8Y.png"
+      },
+      {
+        "name": "Hero Motocorp",
+        "src": "https://framerusercontent.com/images/bCdOU2ec9qF5gPXH5QzbG1MbU.png"
+      },
+      {
+        "name": "Astra Tech",
+        "src": "https://framerusercontent.com/images/CKrZXJFpJvNWFQXgM3idIyxGs.png"
+      },
+      {
+        "name": "Fleet Corp",
+        "src": "https://framerusercontent.com/images/wUdyFLfohvj601L21mkMZ5s.png"
+      },
+      {
+        "name": "HealthOne",
+        "src": "https://framerusercontent.com/images/AHjs1xvFieRBJEP6cGQ5DD9bc0.png"
+      },
+      {
+        "name": "Mobility Lab",
+        "src": "https://framerusercontent.com/images/wndnSZWij5ZoDG9zWq2FES7wM.png"
+      },
+      {
+        "name": "Retail Hub",
+        "src": "https://framerusercontent.com/images/uXaPhcvG7hScdBS5Fm69OtyGI3A.png"
+      },
+      {
+        "name": "SaaS Matrix",
+        "src": "https://framerusercontent.com/images/70WCkl1Si4o8QGXxeAy1kHc8utk.png"
+      },
+      {
+        "name": "Onething Design",
+        "src": "https://framerusercontent.com/images/9L06rCoVWr4NtZdYenqhFselpc.png"
+      },
+      {
+        "name": "Design Collective",
+        "src": "https://framerusercontent.com/images/4Jv1KFBO3p79TKg6IjupncYkyI8.png"
+      }
     ]
   },
   "featuredProjects": [
@@ -117,8 +147,8 @@
       "title": "Fleet Management System",
       "year": "2025",
       "tagline": "Intelligent Telematics & Fleet Monitoring Platform",
-      "video": "https://framerusercontent.com/assets/jaW9YVPwAotH8LXXN6rRThOn19w.mp4",
-      "poster": "https://framerusercontent.com/images/wUdyFLfohvj601L21mkMZ5s.png",
+      "video": "/placeholders/sample-video.mp4",
+      "poster": "/placeholders/project-1-poster.jpg",
       "category": "Automotive SaaS",
       "client": "Global Logistics Leader",
       "role": "Lead Product Designer",
@@ -127,9 +157,18 @@
       "challenge": "Dispatch managers were juggling five disparate legacy interfaces with slow refresh rates, high cognitive load, and delayed emergency response times.",
       "solution": "Designed a clean, dark-mode cockpit with hierarchical information density, real-time map clustering, and single-click driver dispatch workflows that reduced reaction times by 42%.",
       "metrics": [
-        { "label": "Fleet Vehicles Monitored", "value": "10,000+" },
-        { "label": "Dispatch Response Time", "value": "-42%" },
-        { "label": "Telemetry Ingestion Rate", "value": "1.2M/sec" }
+        {
+          "label": "Fleet Vehicles Monitored",
+          "value": "10,000+"
+        },
+        {
+          "label": "Dispatch Response Time",
+          "value": "-42%"
+        },
+        {
+          "label": "Telemetry Ingestion Rate",
+          "value": "1.2M/sec"
+        }
       ],
       "features": [
         "Dynamic Route Optimization & Geofencing",
@@ -143,8 +182,8 @@
       "title": "Royal Enfield’s Digital Ecosystem",
       "year": "Live since 2025",
       "tagline": "Connected Rider App & In-Cluster Companion Experience",
-      "video": "https://framerusercontent.com/assets/0xLrIv0x7RZdmj69lyzR8KdTK8.mp4",
-      "poster": "https://framerusercontent.com/images/jDwtyqIMAvVrjflGGonxKWSXw.png",
+      "video": "/placeholders/sample-video.mp4",
+      "poster": "/placeholders/project-2-poster.jpg",
       "category": "Connected Mobility",
       "client": "Royal Enfield",
       "role": "Senior UI/UX Designer",
@@ -153,9 +192,18 @@
       "challenge": "Riders needed distraction-free navigation while cruising on highways, with high contrast visibility under direct sunlight and seamless Bluetooth LE auto-reconnect.",
       "solution": "Engineered high-contrast, minimalist cluster HUD states combined with an intuitive companion app featuring offline topographic map routing and one-tap emergency SOS beaconing.",
       "metrics": [
-        { "label": "Active Riders Daily", "value": "250K+" },
-        { "label": "App Store Rating", "value": "4.8 ★" },
-        { "label": "Ride Miles Tracked", "value": "45M+" }
+        {
+          "label": "Active Riders Daily",
+          "value": "250K+"
+        },
+        {
+          "label": "App Store Rating",
+          "value": "4.8 ★"
+        },
+        {
+          "label": "Ride Miles Tracked",
+          "value": "45M+"
+        }
       ],
       "features": [
         "Turn-by-Turn Head-Up Tripper Navigation",
@@ -169,8 +217,8 @@
       "title": "Smart Switch Automation",
       "year": "2026",
       "tagline": "Next-Gen IoT Smart Home Touch Controller",
-      "video": "https://framerusercontent.com/assets/amSchHxMgnfz0aHRe2lwRp1AI.mp4",
-      "poster": "https://framerusercontent.com/images/SY3fX5MzYunMFMhAAbPnN3G2TE.png",
+      "video": "/placeholders/sample-video.mp4",
+      "poster": "/placeholders/project-3-poster.jpg",
       "category": "Hardware & IoT Interface",
       "client": "NextGen Automation",
       "role": "Interaction & Product Designer",
@@ -179,9 +227,18 @@
       "challenge": "Traditional smart switch controls are cluttered with complex menus, making physical micro-interactions slow and unintuitive for all age groups in a home.",
       "solution": "Created haptic-feedback spatial micro-gestures and dynamic ambient lighting themes that adapt to the time of day, room occupancy, and energy conservation goals.",
       "metrics": [
-        { "label": "Energy Consumption", "value": "-28%" },
-        { "label": "User Interaction Latency", "value": "<15ms" },
-        { "label": "Setup Completion Rate", "value": "98%" }
+        {
+          "label": "Energy Consumption",
+          "value": "-28%"
+        },
+        {
+          "label": "User Interaction Latency",
+          "value": "<15ms"
+        },
+        {
+          "label": "Setup Completion Rate",
+          "value": "98%"
+        }
       ],
       "features": [
         "Spatial Multi-Touch Glass Slider Controls",
@@ -202,10 +259,14 @@
         "year": "2023",
         "type": "Personal Project",
         "isLive": false,
-        "image": "https://framerusercontent.com/images/3Sna9bacvNDek7BhZI3KnbckiY.png",
+        "image": "/placeholders/archive-1.jpg",
         "description": "An engaging mobile puzzle game exploring spatial cognition, haptic feedback loops, and minimalist typography.",
         "details": "Conducted research on cognitive psychology and tactile reward systems. Built interactive micro-animations with physics-based springs and custom SVG particle bursts.",
-        "tags": ["Mobile UI", "Game Mechanics", "Design Systems"]
+        "tags": [
+          "Mobile UI",
+          "Game Mechanics",
+          "Design Systems"
+        ]
       },
       {
         "id": "elderly-infotainment",
@@ -214,10 +275,14 @@
         "year": "2023",
         "type": "Personal Project",
         "isLive": false,
-        "image": "https://framerusercontent.com/images/7lnTU9KwjT6lLJy17bTaLkIgZc.png",
+        "image": "/placeholders/archive-2.jpg",
         "description": "Inclusive in-vehicle touchscreen interface designed for senior drivers with high contrast, oversized target areas, and voice-assisted confirmations.",
         "details": "Designed according to WCAG AAA guidelines and SAE ergonomic automotive standards. Features ambient voice feedback, zero-depth menu hierarchies, and anti-glare typography.",
-        "tags": ["Accessibility", "Automotive UI", "HMI Design"]
+        "tags": [
+          "Accessibility",
+          "Automotive UI",
+          "HMI Design"
+        ]
       },
       {
         "id": "employee-wellbeing",
@@ -226,10 +291,14 @@
         "year": "2024",
         "type": "Personal Project",
         "isLive": false,
-        "image": "https://framerusercontent.com/images/txuhvK34UAM6dsvvhQaSP3k17Q.png",
+        "image": "/placeholders/archive-3.jpg",
         "description": "Workplace ergonomic companion tracking posture, desk height, and screen time to promote healthy habits in corporate environments.",
         "details": "Integrated Bluetooth desk sensor telemetry into a cheerful, non-intrusive desktop widget with gentle micro-break reminders and team posture challenges.",
-        "tags": ["IoT Software", "Ergonomics", "Behavioral Design"]
+        "tags": [
+          "IoT Software",
+          "Ergonomics",
+          "Behavioral Design"
+        ]
       },
       {
         "id": "jsl-report",
@@ -238,10 +307,14 @@
         "year": "2024",
         "type": "Client Project",
         "isLive": true,
-        "image": "https://framerusercontent.com/images/jO6LUtHXG3HOT7BQW826PnKeqJ8.png",
+        "image": "/placeholders/archive-4.jpg",
         "description": "An interactive, data-dense digital annual report featuring animated financial charts, ESG impact visualizers, and leadership letters.",
         "details": "Crafted interactive scrollytelling experiences for stakeholder disclosure. Boosted average investor session duration from 1.5 minutes to 7.8 minutes.",
-        "tags": ["Data Visualization", "Editorial UI", "Creative Development"]
+        "tags": [
+          "Data Visualization",
+          "Editorial UI",
+          "Creative Development"
+        ]
       },
       {
         "id": "motoverse-website",
@@ -250,10 +323,14 @@
         "year": "2025",
         "type": "Client Project",
         "isLive": true,
-        "image": "https://framerusercontent.com/images/jDwtyqIMAvVrjflGGonxKWSXw.png",
+        "image": "/placeholders/archive-5.jpg",
         "description": "Official festival website for Royal Enfield Motoverse, India's largest motorcycle culture and music festival held in Goa.",
         "details": "Designed high-octane visual identity with 3D motorcycle customizers, artist schedule timelines, ticket checkout flows, and interactive festival venue maps.",
-        "tags": ["Event Platform", "3D Interactive", "High Conversion"]
+        "tags": [
+          "Event Platform",
+          "3D Interactive",
+          "High Conversion"
+        ]
       }
     ]
   },
@@ -265,7 +342,7 @@
     "scrollPrompt": "Scroll to explore",
     "photos": [
       {
-        "src": "https://framerusercontent.com/images/jpTEjYMHFQLFDxwnlzq83c83c.jpg",
+        "src": "/placeholders/travel-1.jpg",
         "location": "Spiti Valley, Himalayas",
         "caption": "High altitude silence and endless horizons.",
         "targetX": 450,
@@ -275,7 +352,7 @@
         "targetRotate": 8
       },
       {
-        "src": "https://framerusercontent.com/images/jog7jF354zj60CdhKIYQIJcFjM.jpeg",
+        "src": "/placeholders/travel-2.jpg",
         "location": "Ladakh Mountain Pass",
         "caption": "Winding roads that test patience and reward courage.",
         "targetX": 400,
@@ -285,7 +362,7 @@
         "targetRotate": -5
       },
       {
-        "src": "https://framerusercontent.com/images/h11TVpAt4gXYw3jDK4MXvc4w0o.jpeg",
+        "src": "/placeholders/travel-3.jpg",
         "location": "Gokarna Coastal Trail",
         "caption": "Where cliffs meet the Arabian Sea at sunset.",
         "targetX": 490,
@@ -295,7 +372,7 @@
         "targetRotate": 7
       },
       {
-        "src": "https://framerusercontent.com/images/BHSKJS87doCm8qtnBiYVHacamE.jpeg",
+        "src": "/placeholders/travel-4.jpg",
         "location": "Kasol Valley",
         "caption": "Morning mist through old pine trees.",
         "targetX": 230,
@@ -305,7 +382,7 @@
         "targetRotate": -7
       },
       {
-        "src": "https://framerusercontent.com/images/myOuHYjBG9gS3OJDawe0zHBbf0.jpg",
+        "src": "/placeholders/travel-5.jpg",
         "location": "Pushkar Desert",
         "caption": "Colors, culture, and architecture etched in time.",
         "targetX": -280,
@@ -315,7 +392,7 @@
         "targetRotate": 6
       },
       {
-        "src": "https://framerusercontent.com/images/oCySVrOzi9LI9fZbv0ZUpa6rwUc.jpg",
+        "src": "/placeholders/travel-6.jpg",
         "location": "Old Manali",
         "caption": "Wooden houses with stories from generations past.",
         "targetX": -500,
@@ -325,7 +402,7 @@
         "targetRotate": -6
       },
       {
-        "src": "https://framerusercontent.com/images/DFL4xQKjEKUKhQpGjVJESvm3D0.jpeg",
+        "src": "/placeholders/travel-7.jpg",
         "location": "Dharamkot Ridge",
         "caption": "Overlooking the Kangra valley under a golden canopy.",
         "targetX": -530,
@@ -335,7 +412,7 @@
         "targetRotate": 8
       },
       {
-        "src": "https://framerusercontent.com/images/tmw4vYLSjI2Or4T627FPQJ1Aw.jpeg",
+        "src": "/placeholders/travel-8.jpg",
         "location": "Varkala Cliffs",
         "caption": "Red cliffs and slow evenings listening to waves.",
         "targetX": -350,
@@ -421,6 +498,6 @@
   },
   "showreelModal": {
     "title": "Design Showreel",
-    "video": "https://framerusercontent.com/assets/0xLrIv0x7RZdmj69lyzR8KdTK8.mp4"
+    "video": "/placeholders/sample-video.mp4"
   }
 }
