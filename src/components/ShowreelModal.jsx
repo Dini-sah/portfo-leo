@@ -25,14 +25,18 @@ export default function ShowreelModal({ isOpen, onClose }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
+      <div
+        className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-hidden"
+        onWheel={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/90 backdrop-blur-xl"
+          className="fixed inset-0 bg-black/90 backdrop-blur-xl cursor-pointer"
         />
 
         {/* Modal Window */}
@@ -41,10 +45,11 @@ export default function ShowreelModal({ isOpen, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-5xl my-auto bg-neutral-950 border border-white/15 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden z-10"
+          data-lenis-prevent="true"
+          className="relative w-full max-w-5xl my-auto bg-neutral-950 border border-white/15 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden z-10 pointer-events-auto"
         >
           {/* Top Bar */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-neutral-900/60 backdrop-blur-md">
+          <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-white/10 bg-neutral-900/80 backdrop-blur-md">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#A670FF] animate-pulse" />
               <span className="text-xs uppercase font-mono tracking-wider text-white/60">

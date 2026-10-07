@@ -21,14 +21,18 @@ export default function CaseStudyModal({ project, onClose }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
+      <div
+        className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-hidden"
+        onWheel={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/85 backdrop-blur-xl transition-opacity"
+          className="fixed inset-0 bg-black/85 backdrop-blur-xl transition-opacity cursor-pointer"
         />
 
         {/* Modal Window */}
@@ -37,10 +41,11 @@ export default function CaseStudyModal({ project, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-5xl my-auto bg-neutral-950 border border-white/15 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col"
+          data-lenis-prevent="true"
+          className="relative w-full max-w-5xl my-auto bg-neutral-950 border border-white/15 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden z-10 max-h-[90vh] h-full flex flex-col pointer-events-auto"
         >
           {/* Top Bar */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-neutral-900/60 sticky top-0 z-20 backdrop-blur-md">
+          <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-white/10 bg-neutral-900/80 sticky top-0 z-20 backdrop-blur-md">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-[#A670FF]" />
               <span className="text-xs uppercase font-mono tracking-wider text-white/60">
@@ -56,7 +61,10 @@ export default function CaseStudyModal({ project, onClose }) {
           </div>
 
           {/* Modal Scrollable Body */}
-          <div className="overflow-y-auto p-6 md:p-10 space-y-10 custom-scrollbar">
+          <div
+            data-lenis-prevent="true"
+            className="flex-1 min-h-0 overflow-y-auto p-6 md:p-10 space-y-10 custom-scrollbar overscroll-contain"
+          >
             {/* Header section */}
             <div>
               <div className="flex items-center justify-between text-sm font-mono text-white/40 mb-2">

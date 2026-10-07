@@ -38,14 +38,18 @@ export default function App() {
     }
   }, []);
 
+  const lenisRef = useRef(null);
+
   // Initialize Lenis buttery smooth momentum scroll
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
     });
+    lenisRef.current = lenis;
+    window.__lenis = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -55,8 +59,23 @@ export default function App() {
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
+      window.__lenis = null;
     };
   }, []);
+
+  // When any modal is open, completely stop Lenis and lock document scroll
+  const isAnyModalOpen = Boolean(selectedProject || isResumeOpen || isShowreelOpen);
+  useEffect(() => {
+    if (!lenisRef.current) return;
+    if (isAnyModalOpen) {
+      lenisRef.current.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      lenisRef.current.start();
+      document.body.style.overflow = '';
+    }
+  }, [isAnyModalOpen]);
 
   // Scroll-linked color transition for the About section
   // "start end" = top of About enters bottom of viewport (scrollY = 0, initial state: black)

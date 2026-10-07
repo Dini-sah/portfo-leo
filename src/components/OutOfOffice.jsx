@@ -40,24 +40,35 @@ export default function OutOfOffice() {
     return () => window.removeEventListener('resize', updateSpread);
   }, []);
 
-  // Track scroll progress across a 220vh runway for continuous scroll tracking
+  // Lock Lenis and body scroll when photo lightbox modal is open
+  useEffect(() => {
+    if (selectedPhoto) {
+      window.__lenis?.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      window.__lenis?.start();
+      document.body.style.overflow = '';
+    }
+  }, [selectedPhoto]);
+
+  // Track scroll progress across a generous 280vh runway for direct, butter-smooth scroll sync
   const { scrollYProgress } = useScroll({
     target: trackRef,
     offset: ["start start", "end end"]
   });
 
   // Center text reveals continuously as photos spread outward
-  const textOpacity = useTransform(scrollYProgress, [0.08, 0.65, 0.92, 1], [0, 1, 1, 0.4]);
-  const textScale = useTransform(scrollYProgress, [0.08, 0.65, 0.92, 1], [0.90, 1, 1, 0.95]);
+  const textOpacity = useTransform(scrollYProgress, [0.06, 0.50, 0.90, 1], [0, 1, 1, 0.5]);
+  const textScale = useTransform(scrollYProgress, [0.06, 0.50, 0.90, 1], [0.92, 1, 1, 0.96]);
 
   return (
     <section
       id="out-of-office"
       ref={trackRef}
-      className="relative w-full h-[220vh] bg-black"
+      className="relative w-full h-[280vh] bg-black"
     >
       {/* Sticky 100vh Viewport Container */}
-      <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center px-6 md:px-12 z-10">
+      <div className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden flex items-center justify-center px-6 md:px-12 z-10">
         
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-950/20 via-black to-black opacity-80 pointer-events-none" />
@@ -96,7 +107,7 @@ export default function OutOfOffice() {
           )}
         </motion.div>
 
-        {/* Scattered Photos: Spreads continuously and proportionally with user scroll */}
+        {/* Scattered Photos: Spreads continuously and synchronously with scroll */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           {OUT_OF_OFFICE_PHOTOS.map((photo, i) => {
             const fallbackConfig = DEFAULT_PHOTO_CONFIG[i % DEFAULT_PHOTO_CONFIG.length];
@@ -124,7 +135,7 @@ export default function OutOfOffice() {
 
         {/* Bottom Helper Indicator */}
         <motion.div
-          style={{ opacity: useTransform(scrollYProgress, [0, 0.25, 0.7, 1], [0.8, 0.4, 0, 0]) }}
+          style={{ opacity: useTransform(scrollYProgress, [0, 0.20, 0.65, 1], [0.8, 0.4, 0, 0]) }}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 text-xs font-mono tracking-widest uppercase flex items-center gap-2 pointer-events-none z-30"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#A670FF] animate-pulse" />
@@ -140,6 +151,8 @@ export default function OutOfOffice() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedPhoto(null)}
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
             className="fixed inset-0 z-[120] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
           >
             <motion.div
@@ -147,7 +160,8 @@ export default function OutOfOffice() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-3xl max-h-[85vh] rounded-2xl overflow-hidden bg-neutral-950 border border-white/20 shadow-2xl cursor-default"
+              data-lenis-prevent="true"
+              className="relative max-w-3xl max-h-[85vh] rounded-2xl overflow-hidden bg-neutral-950 border border-white/20 shadow-2xl cursor-default pointer-events-auto"
             >
               <button
                 onClick={() => setSelectedPhoto(null)}
@@ -179,29 +193,30 @@ export default function OutOfOffice() {
 }
 
 // Individual Photo Card animating from center out to exact target coordinates
-function PhotoCard({ photo, config, spreadFactor, progress, onSelect }) {
-  // Spreads continuously and proportionally with scroll from 0 -> 0.85
+// Note: Outer motion.div handles pure scroll transforms with zero CSS transitions to guarantee 1:1 scroll correspondence.
+function PhotoCard({ photo, config, spreadFactor, progress, onSelect, index }) {
+  // Spreads continuously and proportionally with scroll from 0 -> 0.82
   const x = useTransform(
     progress,
-    [0, 0.85],
+    [0, 0.82],
     [0, config.targetX * spreadFactor]
   );
 
   const y = useTransform(
     progress,
-    [0, 0.85],
+    [0, 0.82],
     [0, config.targetY * spreadFactor]
   );
 
   const scale = useTransform(
     progress,
-    [0, 0.85],
-    [1.0, config.targetScale]
+    [0, 0.82],
+    [0.92, config.targetScale]
   );
 
   const rotate = useTransform(
     progress,
-    [0, 0.85],
+    [0, 0.82],
     [config.initialRotate, config.targetRotate]
   );
 
@@ -212,21 +227,25 @@ function PhotoCard({ photo, config, spreadFactor, progress, onSelect }) {
         y,
         scale,
         rotate,
+        zIndex: 10 + index,
       }}
       onClick={onSelect}
-      className="absolute w-[340px] sm:w-[400px] md:w-[445px] aspect-square rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-white/20 bg-neutral-900 pointer-events-auto cursor-pointer hover:!scale-[1.1] hover:!z-50 hover:border-[#A670FF]/60 transition-all duration-300 will-change-transform"
+      className="absolute w-[320px] sm:w-[380px] md:w-[430px] aspect-square pointer-events-auto cursor-pointer transform-gpu will-change-transform select-none"
     >
-      <img
-        src={photo.src}
-        alt={photo.location}
-        className="w-full h-full object-cover select-none pointer-events-none"
-        loading="lazy"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-        <span className="text-xs text-white font-medium flex items-center gap-1.5">
-          <MapPin size={12} className="text-[#A670FF]" />
-          {photo.location}
-        </span>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/20 bg-neutral-900 shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-[border-color,box-shadow,transform] duration-200 hover:scale-[1.04] hover:border-[#A670FF]/70 hover:shadow-[0_0_30px_rgba(166,112,255,0.35)]">
+        <img
+          src={photo.src}
+          alt={photo.location}
+          className="w-full h-full object-cover select-none pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-200 flex items-end p-4">
+          <span className="text-xs text-white font-medium flex items-center gap-1.5">
+            <MapPin size={12} className="text-[#A670FF]" />
+            {photo.location}
+          </span>
+        </div>
       </div>
     </motion.div>
   );
