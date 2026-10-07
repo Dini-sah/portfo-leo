@@ -5,8 +5,8 @@ import { PORTFOLIO_INFO } from '../data/portfolioData';
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative w-full h-screen flex items-center justify-center px-4 sm:px-8 md:px-12 overflow-hidden">
-      {/* 3D Purple Silk Ribbon & Glow Canvas Background (now transparent so hero background dynamically follows theme) */}
+    <section id="hero" className="relative w-full h-screen flex items-center justify-center px-4 sm:px-8 md:px-12 overflow-hidden bg-black">
+      {/* Moving Violet Silk Mesh Shader Canvas Background */}
       <HeroCanvasBg />
 
       {/* Exact Central Frame Wrapper matching reference screenshot - keeps its distinct dark luxury frame styling */}
