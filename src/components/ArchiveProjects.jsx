@@ -23,10 +23,11 @@ export default function ArchiveProjects({ onSelectProject }) {
   return (
     <section
       id="archive"
-      className="py-24 md:py-36 px-6 sm:px-10 md:px-14 max-w-7xl mx-auto border-t border-white/[0.08] relative"
+      className="relative z-40 w-full bg-black -mt-[100vh] border-t border-white/15 shadow-[0_-35px_100px_rgba(0,0,0,0.98)]"
     >
-      {/* Header section matching Framer reference */}
-      <div className="mb-14 md:mb-20">
+      <div className="py-24 md:py-36 px-6 sm:px-10 md:px-14 max-w-7xl mx-auto relative">
+        {/* Header section matching Framer reference */}
+        <div className="mb-14 md:mb-20">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,6 +134,7 @@ export default function ArchiveProjects({ onSelectProject }) {
             </div>
           );
         })}
+      </div>
       </div>
     </section>
   );
