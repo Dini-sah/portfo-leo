@@ -4,23 +4,47 @@ import { NAVBAR_DATA, PORTFOLIO_INFO } from '../data/portfolioData';
 
 export default function Navbar({ onOpenResume }) {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
+
+      const workEl = document.getElementById('work');
+      if (workEl) {
+        const rect = workEl.getBoundingClientRect();
+        // Section is active when its top is within viewport upper section and bottom is still in view
+        const isInWork = rect.top <= window.innerHeight * 0.45 && rect.bottom >= window.innerHeight * 0.15;
+        setActiveSection(isInWork ? 'work' : null);
+      }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el);
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
-  const monogram = NAVBAR_DATA?.monogram || PORTFOLIO_INFO?.initials || 'RL';
+  const scrollToTop = () => {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    setActiveSection(null);
+  };
+
+  const brandName = NAVBAR_DATA?.name || PORTFOLIO_INFO?.name || 'RALFH LEO';
   const links = NAVBAR_DATA?.links || [
     { id: 'work', label: 'Work', type: 'scroll', target: 'work' },
     { id: 'resume', label: 'Resume', type: 'action', action: 'openResume' }
@@ -37,52 +61,54 @@ export default function Navbar({ onOpenResume }) {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Left: Square Monogram Badge */}
-        <motion.button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer shadow-lg navbar-monogram"
+        {/* Left: Brand Name (No borders) */}
+        <button
+          onClick={scrollToTop}
+          className="cursor-pointer tracking-wider font-semibold text-sm md:text-base uppercase bg-transparent p-0 border-none outline-none transition-opacity duration-200 hover:opacity-75 flex items-center"
           style={{
-            borderColor: 'var(--theme-border)',
             color: 'var(--theme-text)',
           }}
           aria-label="Home"
         >
-          <span className="font-display font-bold text-sm tracking-tight">{monogram}</span>
-        </motion.button>
+          <span className="font-display font-medium text-sm md:text-base tracking-widest uppercase">
+            {brandName}
+          </span>
+        </button>
 
         {/* Right: Nav Links dynamically loaded from config */}
         <nav className="flex items-center gap-8 md:gap-10">
           {links.map((link) => {
-            if (link.type === 'action' && link.action === 'openResume') {
-              return (
-                <button
-                  key={link.id || link.label}
-                  onClick={onOpenResume}
-                  className="hover-roll-trigger cursor-pointer text-sm md:text-base font-normal tracking-wide"
-                  style={{ color: 'var(--theme-text)', opacity: 0.9 }}
-                >
-                  <span className="label-roll-container">
-                    <span className="label-roll">
-                      <span>{link.label}</span>
-                      <span>{link.label}</span>
-                    </span>
-                  </span>
-                </button>
-              );
-            }
+            const isAction = link.type === 'action';
+            const isWork = link.target === 'work' || link.id === 'work';
+            const isActive = isWork && activeSection === 'work';
+
+            const handleClick = () => {
+              if (isAction && link.action === 'openResume') {
+                onOpenResume?.();
+              } else {
+                if (isWork) setActiveSection('work');
+                scrollToSection(link.target || link.id);
+              }
+            };
 
             return (
               <button
                 key={link.id || link.label}
-                onClick={() => scrollToSection(link.target || link.id)}
-                className="relative cursor-pointer font-normal text-sm md:text-base tracking-wide pb-1 group"
+                onClick={handleClick}
+                className="hover-roll-trigger cursor-pointer text-sm md:text-base font-normal tracking-wide relative flex flex-col items-center bg-transparent border-none p-0 outline-none"
                 style={{ color: 'var(--theme-text)' }}
               >
-                <span>{link.label}</span>
                 <span
-                  className="absolute bottom-0 left-0 right-0 h-[1.5px] transition-all"
-                  style={{ backgroundColor: 'var(--theme-text)' }}
-                />
+                  className={`label-roll-container ${isActive ? 'is-active' : ''}`}
+                  style={{
+                    borderBottomColor: isActive ? 'var(--theme-text)' : undefined,
+                  }}
+                >
+                  <span className="label-roll">
+                    <span>{link.label}</span>
+                    <span>{link.label}</span>
+                  </span>
+                </span>
               </button>
             );
           })}
