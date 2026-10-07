@@ -203,17 +203,17 @@ export default function HeroCanvasBg() {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.clearRect(0, 0, w, h);
 
-        // 3D Moving Silk Ribbon Wave Object
+        // 3D Moving Silk Ribbon Wave Object (Rich violet with low blue)
         ctx.save();
         ctx.beginPath();
         const sway = Math.sin(t) * 25;
         ctx.ellipse(w * 0.12 + sway, h * 0.5, w * 0.18, h * 0.48, Math.PI * 0.08, 0, Math.PI * 2);
         ctx.lineWidth = Math.min(w * 0.08, 90);
         const ribbonGrad = ctx.createLinearGradient(0, h * 0.1, w * 0.25, h * 0.9);
-        ribbonGrad.addColorStop(0, 'rgba(140, 60, 240, 0.25)');
-        ribbonGrad.addColorStop(0.3, 'rgba(166, 112, 255, 0.75)');
-        ribbonGrad.addColorStop(0.6, 'rgba(120, 40, 200, 0.80)');
-        ribbonGrad.addColorStop(1, 'rgba(90, 25, 170, 0.25)');
+        ribbonGrad.addColorStop(0, 'rgba(110, 25, 150, 0.20)');
+        ribbonGrad.addColorStop(0.3, 'rgba(160, 52, 185, 0.70)');
+        ribbonGrad.addColorStop(0.6, 'rgba(125, 32, 155, 0.75)');
+        ribbonGrad.addColorStop(1, 'rgba(75, 18, 110, 0.20)');
         ctx.strokeStyle = ribbonGrad;
         ctx.filter = 'blur(28px)';
         ctx.stroke();
@@ -225,10 +225,10 @@ export default function HeroCanvasBg() {
         ctx.ellipse(w * 0.13 + sway * 0.7, h * 0.52, w * 0.13, h * 0.42, Math.PI * 0.08, 0, Math.PI * 2);
         ctx.lineWidth = Math.min(w * 0.04, 45);
         const coreGrad = ctx.createLinearGradient(0, h * 0.2, w * 0.18, h * 0.8);
-        coreGrad.addColorStop(0, 'rgba(166, 112, 255, 0)');
-        coreGrad.addColorStop(0.4, 'rgba(186, 138, 255, 0.7)');
-        coreGrad.addColorStop(0.7, 'rgba(140, 60, 240, 0.75)');
-        coreGrad.addColorStop(1, 'rgba(100, 30, 180, 0)');
+        coreGrad.addColorStop(0, 'rgba(160, 52, 185, 0)');
+        coreGrad.addColorStop(0.4, 'rgba(180, 68, 200, 0.65)');
+        coreGrad.addColorStop(0.7, 'rgba(135, 35, 165, 0.70)');
+        coreGrad.addColorStop(1, 'rgba(90, 20, 125, 0)');
         ctx.strokeStyle = coreGrad;
         ctx.filter = 'blur(16px)';
         ctx.stroke();
@@ -329,9 +329,9 @@ export default function HeroCanvasBg() {
       gl.uniform1f(uniforms.u_scale, 1.0);
       gl.uniform1f(uniforms.u_rotation, 0.0);
       gl.uniform4f(uniforms.u_color1, 0.0, 0.0, 0.0, 0.0);
-      gl.uniform4f(uniforms.u_color2, 165 / 255, 112 / 255, 253 / 255, 1.0); // rgb(165, 112, 253)
+      gl.uniform4f(uniforms.u_color2, 160 / 255, 48 / 255, 185 / 255, 1.0); // Rich royal violet with low blue
       gl.uniform4f(uniforms.u_color3, 0.0, 0.0, 0.0, 0.0);
-      gl.uniform1f(uniforms.u_proportion, 0.35);
+      gl.uniform1f(uniforms.u_proportion, 0.30); // Balanced proportion to reduce over-extended blue haze
       gl.uniform1f(uniforms.u_softness, 0.88); // Crisp silk folds so the moving object is distinctly visible
       gl.uniform1f(uniforms.u_shape, 0.0);     // Checks
       gl.uniform1f(uniforms.u_shapeScale, 0.10);
