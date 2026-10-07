@@ -3,63 +3,52 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 import { FEATURED_PROJECTS } from '../data/portfolioData';
 import { ArrowUpRight } from 'lucide-react';
 
-function StickyProjectCard({
+function StickyOverlapProjectCard({
   project,
   index,
   total,
   scrollYProgress,
   onSelectProject,
-  onJumpToProject,
-  activeGlobalIndex,
 }) {
   const step = 1 / total;
-  const coverStart = index * step;
-  const coverEnd = (index + 1) * step;
+  const enterStart = Math.max(0, (index - 1) * step);
+  const enterEnd = index * step;
 
-  // Scale down, dim, and drift upward when this card is being covered by the next card (or next section)
-  const scale = useTransform(
-    scrollYProgress,
-    [0, coverStart, coverEnd, 1],
-    [1, 1, 0.94, 0.94]
-  );
-
-  const y = useTransform(
-    scrollYProgress,
-    [0, coverStart, coverEnd, 1],
-    [0, 0, -35, -35]
-  );
-
-  const dimOpacity = useTransform(
-    scrollYProgress,
-    [0, coverStart, coverEnd, 1],
-    [0, 0, 0.55, 0.55]
-  );
-
-  // Parallax subtle vertical movement on media for incoming cards
-  const entryStart = Math.max(0, (index - 1) * step);
-  const entryEnd = index * step;
-  const mediaParallaxY = useTransform(
+  // Exact vertical clip wipe:
+  // - Index 0: always base layer.
+  // - Index > 0: starts at 100% (hidden below), and as user scrolls from enterStart to enterEnd,
+  //   wipes UP from 100% to 0% across the center video and content, creating the exact split overlap in the reference.
+  const clipPath = useTransform(
     scrollYProgress,
     index === 0
       ? [0, 1]
-      : [0, entryStart, entryEnd, 1],
+      : index === 1
+      ? [0, enterEnd, 1]
+      : [0, enterStart, enterEnd, 1],
     index === 0
-      ? [0, 0]
-      : [30, 30, 0, 0]
+      ? ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 0%)']
+      : index === 1
+      ? ['inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 0%)']
+      : ['inset(100% 0% 0% 0%)', 'inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 0%)']
   );
 
+  // Background casual vertical parallax scroll
+  const bgRangeStart = Math.max(0, (index - 0.5) * step);
+  const bgRangeEnd = Math.min(1, (index + 1.5) * step);
+  const bgY = useTransform(scrollYProgress, [bgRangeStart, bgRangeEnd], [40, -40]);
+
   return (
-    <div
+    <motion.div
       style={{
         zIndex: 10 + index * 10,
+        clipPath: index === 0 ? undefined : clipPath,
       }}
-      className={`sticky top-0 h-screen h-[100dvh] w-full overflow-hidden bg-black flex flex-col justify-between items-center ${
-        index > 0 ? 'border-t border-white/15 shadow-[0_-30px_90px_rgba(0,0,0,0.95)]' : ''
-      }`}
+      className="absolute inset-0 w-full h-full overflow-hidden bg-black select-none pointer-events-auto"
     >
-      {/* 1. Ambient Blurred Video Background */}
+      {/* 1. Ambient Blurred Video Background with casual parallax motion */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
-        <video
+        <motion.video
+          style={{ y: bgY }}
           src={project.video}
           poster={project.poster}
           autoPlay
@@ -67,27 +56,18 @@ function StickyProjectCard({
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.45] contrast-[1.05]"
+          className="absolute inset-0 w-full h-full object-cover scale-110 filter brightness-[0.5] contrast-[1.05]"
         />
-        <div className="absolute inset-0 backdrop-blur-[14px] bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/85" />
+        <div className="absolute inset-0 backdrop-blur-[12px] bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80" />
       </div>
 
-      {/* 2. Dark Overlay when card is being stacked over */}
-      <motion.div
-        style={{ opacity: dimOpacity }}
-        className="absolute inset-0 bg-black pointer-events-none z-20"
-      />
-
-      {/* 3. Main Content Container (with scale & y parallax transforms) */}
-      <motion.div
-        style={{ scale, y }}
-        className="relative z-10 w-full h-full flex flex-col justify-between items-center py-6 sm:py-8 md:py-10"
-      >
+      {/* 2. Main Sticky Foreground Content */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-between items-center py-6 sm:py-8 md:py-10">
         {/* Top spacer for navbar clearance */}
         <div className="w-full h-16 md:h-20 flex-shrink-0" />
 
-        {/* 3-Column Editorial Grid matching Framer reference */}
+        {/* 3-Column Editorial Grid matching exact reference coordinates */}
         <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 md:px-14 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16 my-auto">
           {/* Left Column: Index, Category & Big Title */}
           <div className="flex-1 w-full lg:max-w-[440px] text-left self-center">
@@ -116,9 +96,8 @@ function StickyProjectCard({
             )}
           </div>
 
-          {/* Center Column: 4:3 Video Card with Case Study Trigger */}
-          <motion.div
-            style={{ y: mediaParallaxY }}
+          {/* Center Column: 4:3 Video Card (stays sticky in center while clip wipes through) */}
+          <div
             onClick={() => onSelectProject(project)}
             className="group relative flex-1 w-full max-w-[560px] aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.85)] cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:border-[#A670FF]/60 hover:shadow-[0_0_40px_rgba(166,112,255,0.3)] self-center"
           >
@@ -139,7 +118,7 @@ function StickyProjectCard({
               <span>View Case Study</span>
               <ArrowUpRight size={14} />
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Timeline & Explore Action */}
           <div className="flex-1 w-full lg:max-w-[280px] flex flex-row lg:flex-col items-center lg:items-end justify-between lg:justify-center gap-3 text-right self-center">
@@ -162,39 +141,10 @@ function StickyProjectCard({
           </div>
         </div>
 
-        {/* Bottom Interactive Navigation & Jump Controls */}
-        <div className="relative z-30 w-full max-w-[1520px] mx-auto px-6 sm:px-10 md:px-14 pb-2 md:pb-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            {FEATURED_PROJECTS.map((p, idx) => (
-              <button
-                key={`nav-${p.id}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onJumpToProject(idx);
-                }}
-                className={`group flex items-center gap-2 py-1.5 px-3 rounded-full transition-all duration-300 cursor-pointer ${
-                  activeGlobalIndex === idx
-                    ? 'bg-white/15 border border-white/25 text-white'
-                    : 'bg-transparent border border-white/10 text-white/40 hover:text-white/70 hover:border-white/20'
-                }`}
-                aria-label={`Jump to project 0${idx + 1}`}
-              >
-                <span className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeGlobalIndex === idx ? 'w-6 bg-[#A670FF]' : 'w-1.5 bg-white/40 group-hover:bg-white/70'
-                }`} />
-                <span className="font-mono text-xs hidden sm:inline-block">
-                  0{idx + 1}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          <span className="text-white/40 font-mono text-[11px] md:text-xs tracking-wider uppercase">
-            Scroll to explore · 0{activeGlobalIndex + 1} / 0{total}
-          </span>
-        </div>
-      </motion.div>
-    </div>
+        {/* Bottom spacing placeholder */}
+        <div className="w-full h-12 md:h-16 flex-shrink-0" />
+      </div>
+    </motion.div>
   );
 }
 
@@ -211,13 +161,13 @@ export default function FeaturedProjects({ onSelectProject }) {
 
   // Dynamically update active global index based on scroll progress
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const current = Math.min(total - 1, Math.max(0, Math.floor(latest * total)));
+    const current = Math.min(total - 1, Math.max(0, Math.floor(latest * total + 0.1)));
     if (current !== activeGlobalIndex) {
       setActiveGlobalIndex(current);
     }
   });
 
-  // Smooth scroll jump to a specific project card within the runway
+  // Smooth scroll jump to a specific project within the runway
   const scrollToProject = (index) => {
     if (!trackRef.current) return;
     const rect = trackRef.current.getBoundingClientRect();
@@ -233,19 +183,50 @@ export default function FeaturedProjects({ onSelectProject }) {
       style={{ height: `${(total + 1) * 100}vh` }}
       className="relative w-full bg-black"
     >
-      {/* Sticky Fullscreen Project Cards stacked in natural sequence */}
-      {FEATURED_PROJECTS.map((project, idx) => (
-        <StickyProjectCard
-          key={project.id}
-          project={project}
-          index={idx}
-          total={total}
-          scrollYProgress={scrollYProgress}
-          onSelectProject={onSelectProject}
-          onJumpToProject={scrollToProject}
-          activeGlobalIndex={activeGlobalIndex}
-        />
-      ))}
+      {/* Pinned Sticky Viewport: center video & layout stay sticky while overlap wipe occurs */}
+      <div className="sticky top-0 h-screen h-[100dvh] w-full overflow-hidden bg-black">
+        {FEATURED_PROJECTS.map((project, idx) => (
+          <StickyOverlapProjectCard
+            key={project.id}
+            project={project}
+            index={idx}
+            total={total}
+            scrollYProgress={scrollYProgress}
+            onSelectProject={onSelectProject}
+          />
+        ))}
+
+        {/* Floating Bottom Navigation Bar (pinned at z-50 above all cards) */}
+        <div className="absolute bottom-6 md:bottom-8 left-0 right-0 z-50 pointer-events-auto">
+          <div className="w-full max-w-[1520px] mx-auto px-6 sm:px-10 md:px-14 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              {FEATURED_PROJECTS.map((p, idx) => (
+                <button
+                  key={`nav-${p.id}`}
+                  onClick={() => scrollToProject(idx)}
+                  className={`group flex items-center gap-2 py-1.5 px-3 rounded-full transition-all duration-300 cursor-pointer ${
+                    activeGlobalIndex === idx
+                      ? 'bg-white/15 border border-white/25 text-white'
+                      : 'bg-transparent border border-white/10 text-white/40 hover:text-white/70 hover:border-white/20'
+                  }`}
+                  aria-label={`Jump to project 0${idx + 1}`}
+                >
+                  <span className={`h-1.5 rounded-full transition-all duration-300 ${
+                    activeGlobalIndex === idx ? 'w-6 bg-[#A670FF]' : 'w-1.5 bg-white/40 group-hover:bg-white/70'
+                  }`} />
+                  <span className="font-mono text-xs hidden sm:inline-block">
+                    0{idx + 1}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <span className="text-white/40 font-mono text-[11px] md:text-xs tracking-wider uppercase">
+              Scroll to explore · 0{activeGlobalIndex + 1} / 0{total}
+            </span>
+          </div>
+        </div>
+      </div>
 
       {/* Spacer enabling the last project to stay pinned full-screen while the next section (Archive) scrolls UP over it */}
       <div className="h-screen w-full pointer-events-none" />
