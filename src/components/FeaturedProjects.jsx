@@ -68,10 +68,10 @@ function StickyOverlapProjectCard({
         <div className="w-full h-16 md:h-20 flex-shrink-0" />
 
         {/* 3-Column Editorial Grid matching exact reference coordinates */}
-        <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 md:px-14 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16 my-auto">
+        <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 md:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-10 xl:gap-14 my-auto">
           {/* Left Column: Index, Category & Big Title */}
-          <div className="flex-1 w-full lg:max-w-[440px] text-left self-center">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="flex-1 w-full lg:max-w-[380px] xl:max-w-[440px] text-left self-center">
+            <div className="flex items-center gap-3 mb-3 md:mb-4">
               <span className="font-mono text-xs md:text-sm text-[#A670FF] font-semibold tracking-widest uppercase">
                 0{index + 1} / 0{total}
               </span>
@@ -84,13 +84,13 @@ function StickyOverlapProjectCard({
 
             <h2
               onClick={() => onSelectProject(project)}
-              className="font-display font-medium text-4xl sm:text-6xl md:text-7xl lg:text-[76px] tracking-[-0.04em] text-white leading-[0.92] cursor-pointer hover:text-white/90 transition-colors drop-shadow-md select-none"
+              className="font-display font-semibold text-2xl sm:text-4xl md:text-[42px] lg:text-[40px] xl:text-[48px] 2xl:text-[54px] tracking-tight text-white leading-[1.08] cursor-pointer hover:text-white/90 transition-colors drop-shadow-md select-none break-words"
             >
               {project.title}
             </h2>
 
             {project.tagline && (
-              <p className="mt-4 text-white/60 text-xs sm:text-sm max-w-sm hidden sm:block font-light leading-relaxed">
+              <p className="mt-3 md:mt-4 text-white/60 text-xs sm:text-sm max-w-sm hidden sm:block font-light leading-relaxed">
                 {project.tagline}
               </p>
             )}
@@ -99,7 +99,7 @@ function StickyOverlapProjectCard({
           {/* Center Column: 4:3 Video Card (stays sticky in center while clip wipes through) */}
           <div
             onClick={() => onSelectProject(project)}
-            className="group relative flex-1 w-full max-w-[560px] aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.85)] cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:border-[#A670FF]/60 hover:shadow-[0_0_40px_rgba(166,112,255,0.3)] self-center"
+            className="group relative flex-1 w-full max-w-[480px] xl:max-w-[540px] aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.85)] cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:border-[#A670FF]/60 hover:shadow-[0_0_40px_rgba(166,112,255,0.3)] self-center"
           >
             <video
               src={project.video}

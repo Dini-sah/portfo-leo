@@ -1,7 +1,9 @@
 {
   "metadata": {
     "title": "RALFH LEO — Product Designer / Portfolio '26",
-    "description": "Portfolio of RALFH LEO, Product Designer with 2+ years of experience across automotive, SaaS and consumer platforms. Transforming complex systems into effortless digital products."
+    "description": "Portfolio of RALFH LEO, Product Designer with 2+ years of experience across automotive, SaaS and consumer platforms. Transforming complex systems into effortless digital products.",
+    "fontFamily": "Unbounded",
+    "googleFontUrl": "https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap"
   },
   "personal": {
     "name": "RALFH LEO",

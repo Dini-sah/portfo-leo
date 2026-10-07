@@ -99,7 +99,7 @@ const CubeSection = forwardRef(function CubeSection(_props, ref) {
           {/* Word-by-word illuminated text reveal with proper paragraph separation */}
           <div
             ref={statementRef}
-            className="font-display font-medium text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.3] md:leading-[1.25] tracking-tight select-none"
+            className="font-display font-medium text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-[1.3] md:leading-[1.25] tracking-tight select-none"
           >
             {paragraphWords.map((words, pIdx) => (
               <p key={pIdx} className="mb-6 last:mb-0">

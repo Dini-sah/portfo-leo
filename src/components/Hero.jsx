@@ -36,7 +36,7 @@ export default function Hero() {
 
         {/* Center: PRODUCT DESIGNER & Bio Subtitle */}
         <div className="flex flex-col items-center justify-center text-center my-auto py-4">
-          <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[110px] tracking-tight text-[#EEEEEE] leading-[0.92] uppercase select-none w-full">
+          <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[92px] 2xl:text-[104px] tracking-tight text-[#EEEEEE] leading-[0.96] uppercase select-none w-full">
             {PORTFOLIO_INFO.role}
           </h1>
 
